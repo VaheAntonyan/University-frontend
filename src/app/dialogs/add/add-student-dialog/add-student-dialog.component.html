@@ -1,0 +1,41 @@
+<div class="container">
+    <h3 mat-dialog-title>Add new Student</h3>
+
+    <form [formGroup]="addStudentFormGroup" class="form">
+        <mat-form-field>
+            <mat-label>First name</mat-label>
+            <input matInput formControlName="firstNameFormControl" name="studentFirstName" type="text" placeholder="Vahe" required>
+            <mat-error *ngIf="firstNameFormControl.hasError('required')">
+                First name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Last name</mat-label>
+            <input matInput formControlName="lastNameFormControl" name="studentLastName" type="text" placeholder="Antonyan" required>
+            <mat-error *ngIf="lastNameFormControl.hasError('required')">
+                Last name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Year</mat-label>
+            <input matInput formControlName="yearFormControl" name="studentYear" type="number" placeholder="2019" required>
+            <mat-error *ngIf="yearFormControl.hasError('required')">
+                Year is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Choose Faculty</mat-label>
+            <mat-select formControlName="facultyIdFormControl" name="studentFaculty" required>
+                <mat-option *ngFor="let faculty of faculties" value="{{faculty.id}}">{{ faculty.name }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="facultyIdFormControl.hasError('required')">
+                Faculty is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-dialog-actions>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!addStudentFormGroup.valid" (click)="onSaveClick()">Save</button>
+            <button mat-raised-button (click)="onCancelClick()">Cancel</button>
+        </mat-dialog-actions>
+    </form>
+</div>

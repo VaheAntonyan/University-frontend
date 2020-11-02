@@ -1,0 +1,12 @@
+<div class="container">
+    <h3 mat-dialog-title>Delete Faculty?</h3>
+    <div mat-dialog-content>
+        <p><b>Id:</b> {{data.id}}</p>
+        <p><b>Name:</b> {{data.name}}</p>
+    </div>
+
+    <div mat-dialog-actions>
+        <button mat-button color="primary" (click)="confirmDelete()">Delete</button>
+        <button mat-button (click)="onCancelClick()">Cancel</button>
+    </div>
+</div>

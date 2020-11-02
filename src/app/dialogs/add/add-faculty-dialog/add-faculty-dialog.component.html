@@ -1,0 +1,17 @@
+<div class="container">
+    <h3 mat-dialog-title>Add new Faculty</h3>
+
+    <form [formGroup]="addFacultyFormGroup" class="form">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="nameFormControl" name="facultyName" type="text" placeholder="Informatics and Applied Mathematics" required>
+            <mat-error *ngIf="nameFormControl.hasError('required')">
+                Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-dialog-actions>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!addFacultyFormGroup.valid" (click)="onSaveClick()">Save</button>
+            <button mat-raised-button (click)="onCancelClick()">Cancel</button>
+        </mat-dialog-actions>
+    </form>
+</div>
